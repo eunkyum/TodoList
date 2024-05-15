@@ -1,0 +1,21 @@
+/* List.css */
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.working-section,
+.done-section {
+  margin-top: 20px;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.working-section h2,
+.done-section h2 {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 10px 0;
+}
