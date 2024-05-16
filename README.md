@@ -9,13 +9,6 @@
 - Todo 상태 변경(완료, 삭제, 복구)
 - 진행 퍼센트 확인
   
-<h3 align="center"></h3>
-
-- 🔭 I’m currently working on **todolist**
-
-- 📝 I regularly write articles on [https://velog.io/@silverkyum/posts](https://velog.io/@silverkyum/posts)
-
-
 <p align="center">
 </p>
 
