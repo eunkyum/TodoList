@@ -1,21 +1,79 @@
-/* List.css */
-.list {
+.todo-list-container {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.todo-section {
   width: 100%;
 }
 
-.working-section,
-.done-section {
-  margin-top: 20px;
-  height: 300px;
-  overflow-y: auto;
+.todo-list {
+  list-style-type: none;
+  padding: 0;
 }
 
-.working-section h2,
-.done-section h2 {
-  position: sticky;
-  top: 0;
-  background-color: white;
-  padding: 10px 0;
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.todo-content {
+  flex-grow: 1;
+}
+
+.todo-title {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.todo-text {
+  margin: 5px 0 0 0;
+}
+
+.todo-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.complete-button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.complete-button:hover {
+  background-color: #45a049;
+}
+
+.restore-button {
+  background-color: #2196f3;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.restore-button:hover {
+  background-color: #0b7dda;
+}
+
+.delete-button {
+  background-color: #ff6b6b;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delete-button:hover {
+  background-color: #ff4c4c;
 }

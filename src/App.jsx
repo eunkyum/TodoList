@@ -1,5 +1,5 @@
 import './App.css';
-import { useRef, useState, useReducer } from 'react';
+import { useRef, useReducer } from 'react';
 import Header from './components/Header';
 import Editor from './components/Editor';
 import List from './components/List';
@@ -21,14 +21,15 @@ function reducer(state, action) {
 
 function App() {
   const [todos, dispatch] = useReducer(reducer, mockData);
-  const idRef = useRef(3);
+  const idRef = useRef(1);
 
-  const onCreate = (content) => {
+  const onCreate = (title, content) => {
     dispatch({
       type: 'CREATE',
       data: {
         id: idRef.current++,
         isDone: false,
+        title: title,
         content: content,
         date: new Date().getTime(),
       },
@@ -51,7 +52,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header title="할일 목록" />
       <Editor onCreate={onCreate} />
       <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
     </div>

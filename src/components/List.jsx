@@ -1,28 +1,60 @@
 import React from 'react';
 import './List.css';
-import TodoItem from './TodoItem';
 
-const List = ({ todos, onUpdate, onDelete }) => {
+function List({ todos, onUpdate, onDelete }) {
+  const workingTodos = todos.filter((todo) => !todo.isDone);
+  const doneTodos = todos.filter((todo) => todo.isDone);
+
   return (
-    <div className="list">
-      <div className="working-section">
+    <div className="todo-list-container">
+      <div className="todo-section">
         <h2>Working</h2>
-        {todos
-          .filter((todo) => !todo.isDone)
-          .map((todo) => (
-            <TodoItem key={todo.id} todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
+        <ul className="todo-list">
+          {workingTodos.map((todo) => (
+            <li key={todo.id} className="todo-item">
+              <div className="todo-content">
+                <h3 className="todo-title">{todo.title}</h3>
+                <p className="todo-text">{todo.content}</p>
+              </div>
+              <div className="todo-buttons">
+                <button onClick={() => onUpdate(todo.id)} className="complete-button">
+                  완료
+                </button>
+                <button onClick={() => onDelete(todo.id)} className="delete-button">
+                  삭제
+                </button>
+              </div>
+            </li>
           ))}
+        </ul>
       </div>
-      <div className="done-section">
+      <div className="todo-section">
         <h2>Done</h2>
-        {todos
-          .filter((todo) => todo.isDone)
-          .map((todo) => (
-            <TodoItem key={todo.id} todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
+        <ul className="todo-list">
+          {doneTodos.map((todo) => (
+            <li key={todo.id} className="todo-item">
+              <div className="todo-content">
+                <h3 className="todo-title" style={{ textDecoration: 'line-through' }}>
+                  {todo.title}
+                </h3>
+                <p className="todo-text" style={{ textDecoration: 'line-through' }}>
+                  {todo.content}
+                </p>
+              </div>
+              <div className="todo-buttons">
+                <button onClick={() => onUpdate(todo.id)} className="restore-button">
+                  복구
+                </button>
+                <button onClick={() => onDelete(todo.id)} className="delete-button">
+                  삭제
+                </button>
+              </div>
+            </li>
           ))}
+        </ul>
       </div>
     </div>
   );
-};
+}
 
 export default List;
