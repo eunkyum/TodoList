@@ -1,4 +1,3 @@
-/* List.css */
 .todo-list-container {
   display: flex;
   flex-direction: column;
@@ -38,7 +37,7 @@
 .todo-title.done,
 .todo-text.done {
   text-decoration: line-through;
-  text-decoration-color: #808080;
+  text-decoration-color: #a9a9a9;
 }
 
 .todo-buttons {
@@ -83,4 +82,27 @@
 
 .delete-button:hover {
   background-color: #ff4c4c;
+}
+
+.done-header {
+  display: flex;
+  align-items: center;
+}
+
+.completion-bar {
+  display: flex;
+  gap: 1px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.completion-square {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.completion-square.filled {
+  background-color: #4caf50;
 }

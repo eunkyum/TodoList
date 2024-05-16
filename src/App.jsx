@@ -50,11 +50,15 @@ function App() {
     });
   };
 
+  const completedTodos = todos.filter((todo) => todo.isDone).length;
+  const totalTodos = todos.length;
+  const completionRate = totalTodos === 0 ? 0 : Math.min(100, Math.round((completedTodos / totalTodos) * 100));
+
   return (
     <div className="App">
       <Header title="할일 목록" />
       <Editor onCreate={onCreate} />
-      <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
+      <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} completionRate={completionRate} />
     </div>
   );
 }

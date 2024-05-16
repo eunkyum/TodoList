@@ -1,10 +1,24 @@
-// List.jsx
 import React from 'react';
 import './List.css';
 
-function List({ todos, onUpdate, onDelete }) {
+function List({ todos, onUpdate, onDelete, completionRate }) {
   const workingTodos = todos.filter((todo) => !todo.isDone);
   const doneTodos = todos.filter((todo) => todo.isDone);
+
+  const getCompletionSquares = () => {
+    const squares = [];
+    const filledSquares = Math.min(5, Math.ceil(completionRate / 20));
+
+    for (let i = 0; i < 5; i++) {
+      if (i < filledSquares) {
+        squares.push(<div key={i} className="completion-square filled" />);
+      } else {
+        squares.push(<div key={i} className="completion-square" />);
+      }
+    }
+
+    return squares;
+  };
 
   return (
     <div className="todo-list-container">
@@ -30,7 +44,10 @@ function List({ todos, onUpdate, onDelete }) {
         </ul>
       </div>
       <div className="todo-section">
-        <h2>Done</h2>
+        <div className="done-header">
+          <h2>Done</h2>
+          <div className="completion-bar">{getCompletionSquares()}</div>
+        </div>
         <ul className="todo-list">
           {doneTodos.map((todo) => (
             <li key={todo.id} className="todo-item">
