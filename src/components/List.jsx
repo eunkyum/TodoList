@@ -1,3 +1,4 @@
+// List.jsx
 import React from 'react';
 import './List.css';
 
@@ -34,12 +35,8 @@ function List({ todos, onUpdate, onDelete }) {
           {doneTodos.map((todo) => (
             <li key={todo.id} className="todo-item">
               <div className="todo-content">
-                <h3 className="todo-title" style={{ textDecoration: 'line-through' }}>
-                  {todo.title}
-                </h3>
-                <p className="todo-text" style={{ textDecoration: 'line-through' }}>
-                  {todo.content}
-                </p>
+                <h3 className="todo-title done">{todo.title}</h3>
+                <p className="todo-text done">{todo.content}</p>
               </div>
               <div className="todo-buttons">
                 <button onClick={() => onUpdate(todo.id)} className="restore-button">
